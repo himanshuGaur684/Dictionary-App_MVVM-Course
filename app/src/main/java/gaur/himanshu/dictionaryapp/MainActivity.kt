@@ -11,8 +11,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import gaur.himanshu.dictionaryapp.view.DictionaryScreen
 import gaur.himanshu.dictionaryapp.view.ui.theme.DictionaryAppTheme
-
+import gaur.himanshu.dictionaryapp.view_model.DictionaryVIewModel
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,9 +24,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             DictionaryAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    val viewModel = hiltViewModel<DictionaryVIewModel>()
+                    DictionaryScreen(
                         modifier = Modifier.padding(innerPadding)
+                            .fillMaxSize(), viewModel
                     )
                 }
             }
