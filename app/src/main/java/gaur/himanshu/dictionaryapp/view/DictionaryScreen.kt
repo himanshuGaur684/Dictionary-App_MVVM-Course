@@ -117,7 +117,7 @@ fun ListItem(item: DictionaryResponseItem) {
             .padding(start = 8.dp, end = 8.dp, top = 8.dp)
             .border(width = 1.dp, color = Color.Gray, shape = RoundedCornerShape(12.dp))
             .padding(horizontal = 16.dp, vertical = 16.dp)
-            .fillMaxWidth()
+            .fillMaxWidth(),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -132,7 +132,7 @@ fun ListItem(item: DictionaryResponseItem) {
             )
             IconButton(onClick = {
                 if (item.phonetics.isNotEmpty()) {
-                    playAudio(item.phonetics.get(0).audio)
+                    playAudio(item.phonetics[0].audio)
                 }
             }) {
                 Image(imageVector = Icons.Default.PlayArrow, contentDescription = null)
@@ -205,8 +205,6 @@ fun ListItem(item: DictionaryResponseItem) {
                     Spacer(modifier = Modifier.height(8.dp))
                 }
             }
-
-
         }
     }
 }
