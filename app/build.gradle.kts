@@ -1,8 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    kotlin("kapt")
     alias(libs.plugins.dagger)
+    alias(libs.plugins.compose.compiler)
+    kotlin("kapt")
 }
 
 android {
